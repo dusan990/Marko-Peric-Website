@@ -84,6 +84,20 @@ a {
     }
 }
 
+.button {
+    align-self: center;
+    padding: 17px 30px;
+    border: solid 1px $color-2;
+    text-transform: uppercase;
+
+    transition: background-color .4s ease-in-out, color .4s ease-in-out;
+
+    &:hover {
+        color: white;
+        background-color: $color-2;
+    }
+}
+
 ul {
     list-style-type: none;
     display: flex;
@@ -244,16 +258,21 @@ section {
     }
 }
 
-.hero {
-    height: 100vh;
+#home {
     background-image: url(../images/home-background.png);
-    background-position: right;
+    background-position: right 100px;
     background-repeat: no-repeat;
-
-    #home {
+    background-size: 50%;
+    
+    .header {
+        height: 100vh;
 
         .column {
             padding: ($spc * 15) 0;
+            @include mq('laptop') {
+                padding: 0;
+            }
+
             h1, h3 {
                 margin-bottom: $spc * 2;
             }
@@ -274,6 +293,48 @@ section {
             li {
                 a, p {
                     color: #d3d8df;
+                }
+            }
+        }
+    }
+
+    .projects {
+        padding: ($spc * 10) 0;
+        .column:first-of-type {
+            display: flex;
+            justify-content: space-between;
+
+            h1 {
+                text-transform: uppercase;
+            }
+            a {
+                align-self: center;
+            }
+        }
+        .project-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: ($spc * 5) 0;
+
+            &:nth-of-type(3) {
+                flex-direction: column-reverse;
+            }
+            
+            img {
+                width: 760px;
+                height: 500px;
+            }
+
+            .project-item_description {
+                display: flex;
+                flex-flow: column nowrap;
+                flex: 1;
+                padding-left: $spc * 3;
+                padding-top: $spc * 10;
+
+                p {
+                    color: #959faa;
                 }
             }
         }
