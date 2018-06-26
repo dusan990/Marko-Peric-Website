@@ -51,10 +51,18 @@ h1, h2, h3 {
 h1 {
     font-size: 56px;
     letter-spacing: 4px;
+
+    @include mq('mobile') {
+        font-size: 30px;
+    }
 }
 h2 {
     font-size: 24px;
     letter-spacing: 1.7px;
+
+    @include mq('mobile') {
+        font-size: 20px;
+    }
 }
 h3 {
     font-family: $font-3;
@@ -66,6 +74,10 @@ p {
     font-size: 16px;
     line-height: 1.75;
     letter-spacing: 0.4px;
+
+    @include mq('mobile') {
+        font-size: 14px;
+    }
 }
 a {
     font-family: $font-3;
@@ -75,9 +87,10 @@ a {
     letter-spacing: 2px;
     color: $color-1;
 
-    &:visited {
-        color: #60707e;
+    @include mq('mobile') {
+        font-size: 13px;
     }
+
     &.active {
         color: $color-3;
         font-weight: 700;
@@ -236,7 +249,8 @@ section {
     margin-right: auto;
 
     @include mq('mobile') {
-        padding: 0 30px;
+        padding: 30px;
+        box-sizing: border-box;
     }
     
     .content {
@@ -260,17 +274,30 @@ section {
 
 #home {
     background-image: url(../images/home-background.png);
-    background-position: right 100px;
+    background-position: right 200px;
     background-repeat: no-repeat;
-    background-size: 50%;
+
+    @include mq('laptop') {
+        background-position: right 140px;
+        background-size: 40%;
+    }
+    @include mq('mobile') {
+        background-position: right 21%;
+        background-size: 45%;
+    }
     
     .header {
         height: 100vh;
 
         .column {
+            width: 35%;
             padding: ($spc * 15) 0;
+
             @include mq('laptop') {
                 padding: 0;
+            }
+            @include mq('mobile') {
+                width: 100%;
             }
 
             h1, h3 {
@@ -289,8 +316,20 @@ section {
 
         .footer-nav {
             margin-top: auto;
+            margin-bottom: $spc * 7.5;
+            padding-bottom: 0;
             
             li {
+                height: 100%;
+
+                &:first-of-type {
+                    span {
+                        width: 20px;
+                        height: 2px;
+                        background-color: #d3d8df;
+                    }
+                }
+
                 a, p {
                     color: #d3d8df;
                 }
@@ -299,7 +338,13 @@ section {
     }
 
     .projects {
-        padding: ($spc * 10) 0;
+        padding: ($spc * 7.5) 0;
+
+        @include mq('mobile') {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
         .column:first-of-type {
             display: flex;
             justify-content: space-between;
@@ -311,30 +356,57 @@ section {
                 align-self: center;
             }
         }
+
         .project-item {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             padding: ($spc * 5) 0;
 
+            &:nth-of-type(2) {
+                .button {
+                    border-color: #d3d8df;
+                    color: #d3d8df;
+
+                    &:hover {
+                        background: transparent;
+                        border-color: #d3d8df;
+                    }
+                }
+            }
+            
             &:nth-of-type(3) {
-                flex-direction: column-reverse;
+                flex-direction: row-reverse;
+            }
+
+            &:last-of-type {
+                padding-bottom: 0;
             }
             
             img {
                 width: 760px;
                 height: 500px;
+
+                @include mq('tablet') {
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             .project-item_description {
                 display: flex;
-                flex-flow: column nowrap;
+                flex-flow: column wrap;
                 flex: 1;
                 padding-left: $spc * 3;
                 padding-top: $spc * 10;
 
+                .button {
+                    margin-top: $spc * 12;
+                    align-self: flex-start;
+                }
                 p {
                     color: #959faa;
+                    margin-top: $spc * 1.5;
                 }
             }
         }
@@ -442,6 +514,10 @@ section {
         }
         .column {
             flex: 1;
+
+            @include mq('mobile') {
+                flex: 0 0 30%;
+            }
         }
     }
 
@@ -461,9 +537,11 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: $spc * 7.5;
 
     @include mq('tablet') {
         padding: 0 30px;
+        font-size: 26px;
     }
 
     .content {
@@ -477,12 +555,16 @@ footer {
             width: 52%;
             margin: ($spc * 5) 0;
 
+            @include mq('mobile') {
+                width: 100%;
+                font-size: 26px;
+            }
+
             a {
                 @extend h1;
                 color: $color-2;
             }
         }
-
     }
 }
 .footer-nav {
