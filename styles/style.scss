@@ -141,7 +141,7 @@ ul {
     width: 1160px;
     align-items: center;
     align-self: center;
-    padding-bottom: $spc * 7.5;
+    padding-bottom: $spc * 5;
 
     @include mq('tablet') {
         flex-direction: column;
@@ -280,7 +280,7 @@ section {
     display: flex;
     flex-flow: column nowrap;
     
-    @include mq('mobile') {
+    @include mq('tablet') {
         padding: 30px;
         box-sizing: border-box;
     }
@@ -342,7 +342,6 @@ section {
         height: 75vh;
         flex-direction: row;
         padding: 0;
-        border: 1px solid red;
 
         .header {
 
@@ -500,8 +499,6 @@ section {
     }
 
     .project-item {
-        border: 1px solid red;
-
         justify-content: space-between;
         padding: 5rem 0;
 
@@ -509,7 +506,7 @@ section {
             display: flex;
 
             .project-item_description {
-                padding-right: 3rem;
+                padding-right: $spc * 3;
                 padding-left: 0;
             }
         }
@@ -519,7 +516,7 @@ section {
         }
 
         img {
-            width: 760px;
+            //width: 760px;
             height: 500px;
         }
 
@@ -563,21 +560,55 @@ section {
                     height: 100%;
                 }
             }
+        }   
+    }
+
+    .conclusion {
+        background-color: #fbfbfb;
+
+        .content {
+            flex-flow: row-reverse nowrap;
+
+            .project-item_description {
+                padding-right: $spc * 3;
+                padding-left: 0;
+                
+                p {
+                    margin-bottom: $spc * 2;
+                }
+            }
         }
-        
     }
 }
 
-.case-study {
+#case-study {
     .case-study_description {
         justify-content: space-between;
-
+        
         li {
             display: flex;
-
+            
             h2 {
                 padding-right: $spc * 2.5;
             }
+        }
+    }
+    .project-item {
+        
+        ~ .image-descriptions {
+            text-align: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+        
+        .column {
+            p {
+                padding-bottom: $spc * 2;
+            }   
         }
     }
 }

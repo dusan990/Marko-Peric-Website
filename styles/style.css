@@ -93,7 +93,7 @@ ul {
   width: 1160px;
   align-items: center;
   align-self: center;
-  padding-bottom: 7.5rem; }
+  padding-bottom: 5rem; }
   @media only screen and (max-width: 1223px) {
     .nav {
       flex-direction: column;
@@ -176,7 +176,7 @@ section {
   height: 100%;
   display: flex;
   flex-flow: column nowrap; }
-  @media only screen and (max-width: 799px) {
+  @media only screen and (max-width: 1223px) {
     section {
       padding: 30px;
       box-sizing: border-box; } }
@@ -224,8 +224,7 @@ section {
   #home .content:nth-of-type(1) {
     height: 75vh;
     flex-direction: row;
-    padding: 0;
-    border: 1px solid red; }
+    padding: 0; }
     #home .content:nth-of-type(1) .header .column, #home .content:nth-of-type(1) .header .col-2 {
       width: 35%; }
       @media only screen and (max-width: 1439px) {
@@ -322,7 +321,6 @@ section {
 #projects .page-heading p {
   color: #3f5163; }
 #projects .project-item {
-  border: 1px solid red;
   justify-content: space-between;
   padding: 5rem 0; }
   #projects .project-item ~ .row_reverse {
@@ -333,7 +331,6 @@ section {
   #projects .project-item:last-of-type {
     padding-bottom: 0; }
   #projects .project-item img {
-    width: 760px;
     height: 500px; }
   #projects .project-item .project-item_description {
     padding-left: 3rem;
@@ -357,13 +354,30 @@ section {
     #projects .project-item_vertical .project-item .project-item_image img {
       width: 100%;
       height: 100%; }
+#projects .conclusion {
+  background-color: #fbfbfb; }
+  #projects .conclusion .content {
+    flex-flow: row-reverse nowrap; }
+    #projects .conclusion .content .project-item_description {
+      padding-right: 3rem;
+      padding-left: 0; }
+      #projects .conclusion .content .project-item_description p {
+        margin-bottom: 2rem; }
 
-.case-study .case-study_description {
+#case-study .case-study_description {
   justify-content: space-between; }
-  .case-study .case-study_description li {
+  #case-study .case-study_description li {
     display: flex; }
-    .case-study .case-study_description li h2 {
+    #case-study .case-study_description li h2 {
       padding-right: 2.5rem; }
+#case-study .project-item ~ .image-descriptions {
+  text-align: center; }
+  #case-study .project-item ~ .image-descriptions img {
+    width: 100%;
+    height: 100%;
+    display: block; }
+#case-study .project-item .column p, #case-study .project-item .col-2 p {
+  padding-bottom: 2rem; }
 
 footer, .testimonial {
   background-color: #172483;
