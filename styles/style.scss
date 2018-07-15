@@ -147,6 +147,9 @@ ul {
         flex-direction: column;
         align-items: center;
     }
+    @include mq('mobile-xs') {
+        padding: 20px 0 0 0;
+    }
 
     &.nav-links-active {
         li:nth-child(3),
@@ -154,11 +157,13 @@ ul {
         li:nth-child(5) {
             opacity: 1;
             height: 20px;
-            transition: all .6s ease-in-out;
+            transform: translateY(30px);
+            pointer-events: all;
         }
     }
 
     li {
+        transition: transform .6s ease-in-out, height .6s ease-in-out, opacity .6s ease-in-out;
 
         @include mq('tablet') {
             margin: 0;
@@ -167,6 +172,7 @@ ul {
             &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
                 opacity: 0;
                 height: 0;
+                pointer-events: none;
             }
         }
 
@@ -281,7 +287,7 @@ section {
     flex-flow: column nowrap;
     
     @include mq('tablet') {
-        padding: 30px;
+        padding: 0 30px;
         box-sizing: border-box;
     }
     
@@ -294,8 +300,12 @@ section {
         margin-right: auto;
         padding: ($spc * 7.5) 0;
         
+        @include mq('mobile') {
+            padding : 0;
+        }
     }
 }
+
 .column {
     box-sizing: border-box;
     display: flex;
@@ -305,16 +315,27 @@ section {
         width: 100%;
     }
 }
+
 .col-2 {
     @extend .column;
     width: calc(50% - 15px);
+
+    @include mq('mobile') {
+        width: 100%;       
+    }
 }
+
 .row {
     display: flex;
 }
+
 .row_reverse {
     @extend .row;
     flex-direction: row-reverse;
+
+    @include mq('mobile') {
+        flex-direction: column;
+    }
 }
 
 #home {
@@ -339,14 +360,33 @@ section {
     }
 
     .content:nth-of-type(1) {
-        height: 75vh;
+        height: 85vh;
         flex-direction: row;
         padding: 0;
 
+        @include mq('laptop') {
+            height: 80vh;
+            margin-top: 40px;
+        }
+        @include mq('mobile-sm') {
+            margin-top: 0;
+        }
+
         .header {
+            margin-top: 15%;
+
+            @include mq('laptop') {
+                margin-top: 5%;
+            }
+            @include mq('mobile') {
+                margin-top: 40px;
+            }
+            @include mq('mobile-sm') {
+                margin-top: 0;
+            }
 
             .column {
-                width: 35%;
+                width: 40%;
     
                 @include mq('laptop') {
                     padding: 0;
@@ -404,31 +444,51 @@ section {
 #about {
     flex-flow: row wrap;
 
-    .profile-image {
-        width: 40%;
-        height: 100%;
-        
+    .introduction {
+        justify-content: space-between;
+
         @include mq('mobile') {
-            order: 2;
             width: 100%;
+            flex-direction: column;
+        }
+
+        .profile-image {
+            width: 40%;
+            
+            @include mq('mobile') {
+                width: 100%;
+                order: 2;
+                padding: $spc * 3 0;
+            }
+        }
+        .col-2 {
+            @include mq('mobile') {
+                order: 1;
+            }
+           
+            &:nth-of-type(2) {
+                color: #3f5163;
+            } 
         }
     }
 
-    .col-2:nth-of-type(2) {
-        color: #3f5163;
-    }
 
     ul {
         flex-flow: row wrap;
         justify-content: space-between;
         margin: 0;
         padding: ($spc * 2.5) 0 ($spc * 5) 0;
+
         
         li {
             width: calc(50% - 15px);
             padding: 0;
             margin: ($spc * 2.5) 0;
             
+            @include mq('mobile') {
+                width: 100%;    
+            }
+
             p {
                 color: #959faa;
             }
@@ -477,17 +537,25 @@ section {
         justify-content: space-between;
         margin-top: ($spc * 5);
 
+        ul {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+
+            li {
+                flex: 1;
+                margin: 0;
+                
+                p {
+                    color: #60707e;
+                }
+            }
+        }
+
         h1 {
             flex: 1 0 100%;
         }
 
-        p {
-            color: #60707e;
-        }
-
-        .column {
-            flex: 1;
-        }
     }
 }
 
@@ -501,6 +569,10 @@ section {
     .project-item {
         justify-content: space-between;
         padding: 5rem 0;
+        
+        @include mq('tablet') {
+            flex-direction: column;
+        }
 
         ~ .row_reverse {
             display: flex;
@@ -518,6 +590,11 @@ section {
         img {
             //width: 760px;
             height: 500px;
+
+            @include mq('tablet') {
+                width: 100%;
+                height: 100%;
+            } 
         }
 
         .project-item_description {
@@ -549,9 +626,17 @@ section {
     .project-item_vertical {
         justify-content: space-between;
 
+        @include mq('mobile') {
+            flex-direction: column;
+        }
+
         .project-item {
             width: calc(50% - 15px);
             padding-bottom: 0;
+
+            @include mq('mobile') {
+                width: 100%;
+            }
             
             .project-item_image {
 
@@ -563,15 +648,32 @@ section {
         }   
     }
 
+    //Case stufy page additional
+
+    .case-study_header-image {
+        width: 100%;
+    }
+
     .conclusion {
         background-color: #fbfbfb;
 
         .content {
             flex-flow: row-reverse nowrap;
 
+            @include mq('mobile') {
+                flex-direction: column;
+            }
+
             .project-item_description {
                 padding-right: $spc * 3;
                 padding-left: 0;
+
+                @include mq('tablet') {
+                    padding: 0 $spc * 3;
+                }
+                @include mq('tablet') {
+                    padding: $spc * 3;
+                }
                 
                 p {
                     margin-bottom: $spc * 2;
@@ -582,8 +684,19 @@ section {
 }
 
 #case-study {
+
+    .col-2 {
+        @include mq('mobile') {
+            padding-top: $spc * 3;
+        }
+    }
+
     .case-study_description {
         justify-content: space-between;
+
+        @include mq('mobile') {
+            flex-direction: column;
+        }
         
         li {
             display: flex;
@@ -593,6 +706,7 @@ section {
             }
         }
     }
+
     .project-item {
         
         ~ .image-descriptions {
@@ -626,7 +740,7 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: $spc * 7.5;
+    margin-top: $spc * 5;
 
     @include mq('tablet') {
         padding: 0 30px;
