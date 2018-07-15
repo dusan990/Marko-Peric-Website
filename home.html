@@ -12,25 +12,26 @@
 
 <body>
     
-    
-    <div id="home">
-        <section class="content header">
-            <ul class="nav">
-                <li><a href="home.html"><img src="images/logo-marko-peric.svg" alt=""></a></li>
-                <li class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
+    <section id="home">
+        <ul class="nav">
+            <li><a href="home.html"><img src="images/logo-marko-peric.svg" alt=""></a></li>
+            <li class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li><a class="active" href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
 
-            <div class="column">
-                <h3>Hello! my name is</h3>
-                <h1>Marko Peric <span>&amp;</span><br> I’m a Designer</h1>
-                <p>I’m an enthusiastic UX UI Designer focused on creating concepts and experiences that empower people and solve real-world problems.</p>
+        <div class="content">
+            <div class="header">
+                <div class="column">
+                    <h3>Hello! my name is</h3>
+                    <h1>Marko Peric <span>&amp;</span><br> I’m a Designer</h1>
+                    <p>I’m an enthusiastic UX UI Designer focused on creating concepts and experiences that empower people and solve real-world problems.</p>
+                </div>
             </div>
 
             <ul class="footer-nav">
@@ -40,33 +41,36 @@
                 <li><a href="">Github</a></li>
                 <li><a href="">LinkedIn</a></li>
             </ul>
-        </section>
+        </div>
         
-        <section id="projects" class="content projects">
-            <div class="column">
+        <div id="projects"  class="content">
+
+            <div class="row">
                 <h1>Selected projects</h1>
                 <a class="button" href="">View all projects</a>
             </div>
-    
-            <div class="column project-item">
+
+            <div class="row project-item">
                 <img src="images/summit-project-1.png" alt="">
-                <div class="project-item_description">
+                <div class="column project-item_description">
                     <h2>Summit</h2>
                     <p>Summit - Budget controls is an application that helps you control all your income and expenses in your budget.</p>
-                    <a class="button" href="">Case study cooming soon</a>
+                    <a class="button button_fade" href="">Case study cooming soon</a>
                 </div>
             </div>
-    
-            <div class="column project-item">
+
+            <div class="row_reverse project-item">
                 <img src="images/summit-project-2.png" alt="">
-                <div class="project-item_description">
+                <div class="column project-item_description">
                     <h2>Mixcloud</h2>
                     <p>Mixcloud is an internet streaming music service that allows the listening and distribution of radio shows, mixes od DJ and podcasts, which are uploaded by users.</p>
                     <a class="button" href="">Read case study</a>
                 </div>
             </div>
-        </section>
-    </div>
+
+        </div>
+    
+    </section>
 
     <footer>
         <div class="content">

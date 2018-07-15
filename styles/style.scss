@@ -37,8 +37,9 @@ $color-3 : #142a40;
 
 $spc: 1rem;
 
-h1,h2,h3,p {
-    margin: 0;  
+h1,h2,h3 {
+    margin: 0;
+    margin-bottom: $spc * 2; 
 }
 h1, h2 {
     font-family: $font-1;
@@ -48,7 +49,9 @@ h1, h2 {
 h1, h2, h3 {
     text-transform: uppercase;
 }
+
 h1 {
+    margin-bottom: $spc * 2.5; 
     font-size: 56px;
     letter-spacing: 4px;
 
@@ -72,6 +75,7 @@ h3 {
 p {
     font-family: $font-2;
     font-size: 16px;
+    margin: 0;
     line-height: 1.75;
     letter-spacing: 0.4px;
 
@@ -134,7 +138,9 @@ ul {
 }
 
 .nav {
+    width: 1160px;
     align-items: center;
+    align-self: center;
     padding-bottom: $spc * 7.5;
 
     @include mq('tablet') {
@@ -258,6 +264,7 @@ ul {
                     transition: width .3s ease-in-out;
     
                 }
+                
                 &:hover {
                     &:after {
                         width: 30px;
@@ -270,34 +277,44 @@ ul {
 
 section {
     height: 100%;
-    max-width: 1160px;
     display: flex;
     flex-flow: column nowrap;
-    margin-left: auto;
-    margin-right: auto;
-
+    
     @include mq('mobile') {
         padding: 30px;
         box-sizing: border-box;
     }
     
     .content {
+        max-width: 1160px;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
         justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
         padding: ($spc * 7.5) 0;
         
-        .column {
-            width: calc(50% - 15px);
-            box-sizing: border-box;
-            display: flex;
-            flex-flow: column wrap;
-
-            @include mq('mobile') {
-                width: 100%;
-            }
-        }
     }
+}
+.column {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column wrap;
+
+    @include mq('mobile') {
+        width: 100%;
+    }
+}
+.col-2 {
+    @extend .column;
+    width: calc(50% - 15px);
+}
+.row {
+    display: flex;
+}
+.row_reverse {
+    @extend .row;
+    flex-direction: row-reverse;
 }
 
 #home {
@@ -306,7 +323,7 @@ section {
     background-repeat: no-repeat;
 
     @include mq('laptop') {
-        background-position: right 140px;
+        background-position: right 160px;
         background-size: 40%;
     }
     @include mq('mobile') {
@@ -314,35 +331,48 @@ section {
         background-size: 45%;
     }
     
-    .header {
-        height: 100vh;
+    #projects {
+        .row:nth-of-type(1) {
+            flex: 1;
+            justify-content: space-between;
+        }
+    }
 
-        .column {
-            width: 35%;
-            padding: ($spc * 15) 0;
+    .content:nth-of-type(1) {
+        height: 75vh;
+        flex-direction: row;
+        padding: 0;
+        border: 1px solid red;
 
-            @include mq('laptop') {
-                padding: 0;
-            }
-            @include mq('mobile') {
-                width: 100%;
-            }
+        .header {
 
-            h1, h3 {
-                margin-bottom: $spc * 2;
-            }
+            .column {
+                width: 35%;
     
-            h1 {
-                line-height: 1.4;
-                letter-spacing: 4px;
+                @include mq('laptop') {
+                    padding: 0;
+                }
+                @include mq('mobile') {
+                    width: 100%;
+                }
+        
+                h1 {
+                    line-height: 1.4;
+                    letter-spacing: 4px;
+    
+                    span {
+                        color: #EBEFF2;
+                    }
+                }
 
-                span {
-                    color: #EBEFF2;
+                p {
+                    color: #142a40;
                 }
             }
         }
 
         .footer-nav {
+            width: 100%;
             margin-top: auto;
             margin-bottom: $spc * 7.5;
             padding-bottom: 0;
@@ -351,6 +381,7 @@ section {
                 height: 100%;
 
                 &:first-of-type {
+                    margin-right: auto;
                     span {
                         width: 20px;
                         height: 2px;
@@ -371,162 +402,60 @@ section {
     }
 }
 
-#home,
-#projects {
-    .projects {
-        padding: ($spc * 7.5) 0;
-
-        @include mq('tablet') {
-            padding-left: 30px;
-            padding-right: 30px;
-        }
-
-        .column:first-of-type {
-            display: flex;
-            justify-content: space-between;
-
-            h1 {
-                text-transform: uppercase;
-            }
-            a {
-                align-self: center;
-            }
-        }
-
-        .project-item {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: ($spc * 5) 0;
-
-            &:nth-of-type(2) {
-                .button {
-                    border-color: #d3d8df;
-                    color: #d3d8df;
-
-                    &:hover {
-                        background: transparent;
-                        border-color: #d3d8df;
-                    }
-                }
-            }
-            
-            &:nth-of-type(3) {
-                flex-direction: row-reverse;
-            }
-
-            &:last-of-type {
-                padding-bottom: 0;
-            }
-            
-            img {
-                width: 760px;
-                height: 500px;
-
-                @include mq('tablet') {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            .project-item_description {
-                display: flex;
-                flex-flow: column wrap;
-                flex: 1;
-                padding-left: $spc * 3;
-                padding-top: $spc * 10;
-
-                .button {
-                    margin-top: $spc * 12;
-                    align-self: flex-start;
-                }
-                p {
-                    color: #959faa;
-                    margin-top: $spc * 1.5;
-                }
-            }
-        }
-    }
-}
-
 #about {
-    .home {
-        img {
-            width: 40%;
-            height: 100%;
-            
-            @include mq('mobile') {
-                order: 2;
-                width: 100%;
-            }
-        }
-        .column {
-            margin-top: ($spc * 5);
-    
-            h3, h1, p {
-                margin-bottom: $spc * 2.5;
+    flex-flow: row wrap;
 
-                a {
-                    font-family: $font-2;
-                    text-transform: none;
-                    color: $color-2;
-                }
-            }
-            h1 {
-                font-size: 38px;
-                line-height: 1.4;
-                letter-spacing: 2.7px;
-            }
+    .profile-image {
+        width: 40%;
+        height: 100%;
+        
+        @include mq('mobile') {
+            order: 2;
+            width: 100%;
         }
     }
 
-    .process {
-        .column {
+    .col-2:nth-of-type(2) {
+        color: #3f5163;
+    }
+
+    ul {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: ($spc * 2.5) 0 ($spc * 5) 0;
+        
+        li {
+            width: calc(50% - 15px);
+            padding: 0;
             margin: ($spc * 2.5) 0;
             
-            &:nth-of-type(1) {
-                flex: 1 0 100%;
-                flex-direction: column;
-
-                h3, h1, p {
-                    margin-bottom: $spc * 2; 
-                }
-                
-                p {
-                    width: calc(50% - 30px);
-                    color: #3f5163;
-                }
-            }
-
             p {
                 color: #959faa;
             }
-            h2 {
-                margin-bottom: $spc * 2;
-            }
         }
     }
-    
+
     .testimonial {
-        padding: 50px 0;
-        flex-direction: column;
         align-items: center;
         text-align: center;
-
+        padding: 50px 0;
+        margin: ($spc * 5) 0 ($spc * 5) 0;
+    
         @include mq("mobile") {
             padding: 50px 30px 50px 30px;
         }
-
+    
         p {
             &:first-child {
                 width: 60%;
                 position: relative;
                 padding-bottom: 50px;
-
+    
                 @include mq("mobile") {
                     width: 100%;
                 }
-
+    
                 &:after {
                     content: '';
                     position: absolute;
@@ -544,45 +473,110 @@ section {
     }
 
     .skillset {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: ($spc * 5);
+
         h1 {
-            flex: 1 100%;
-            margin-bottom: ($spc * 2.5);
+            flex: 1 0 100%;
         }
+
+        p {
+            color: #60707e;
+        }
+
         .column {
             flex: 1;
-
-            @include mq('mobile') {
-                flex: 0 0 30%;
-            }
         }
     }
-
 }
 
 #projects {
-    .projects {
-        .project-item_vertical {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
+    .page-heading {
+        p {
+            color: #3f5163;
+        }
+    }
 
-            .project-item {
-                width: calc(50% - 15px);height: 100%;
-                
-                &:nth-of-type(1) {
-                    .project-item_image {
-                        background-image: url('../images/summit-project-3.png');
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    }
+    .project-item {
+        border: 1px solid red;
+
+        justify-content: space-between;
+        padding: 5rem 0;
+
+        ~ .row_reverse {
+            display: flex;
+
+            .project-item_description {
+                padding-right: 3rem;
+                padding-left: 0;
+            }
+        }
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+
+        img {
+            width: 760px;
+            height: 500px;
+        }
+
+        .project-item_description {
+            padding-left: 3rem;
+            padding-top: 10rem;
+
+
+            p {
+                color: #959faa;
+            }
+            
+            .button {
+                margin-top: 12rem;
+                align-self: flex-start;
+            }
+
+            .button_fade {
+                border-color: #d3d8df;
+                color: #d3d8df;
+
+                &:hover {
+                    background: transparent;
+                    border-color: #d3d8df;
                 }
-                &:nth-of-type(2) {
-                    .project-item_image {
-                        background-image: url("../images/summit-project-4.png");
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    }
+            }
+        }
+    }
+    
+    .project-item_vertical {
+        justify-content: space-between;
+
+        .project-item {
+            width: calc(50% - 15px);
+            padding-bottom: 0;
+            
+            .project-item_image {
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
+            }
+        }
+        
+    }
+}
+
+.case-study {
+    .case-study_description {
+        justify-content: space-between;
+
+        li {
+            display: flex;
+
+            h2 {
+                padding-right: $spc * 2.5;
             }
         }
     }
@@ -598,7 +592,6 @@ footer, .testimonial {
 }
 
 footer {
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
