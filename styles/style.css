@@ -21,8 +21,8 @@ h1, footer .content h1 a, h2, h3 {
 
 h1, footer .content h1 a {
   margin-bottom: 2.5rem;
-  font-size: 56px;
-  letter-spacing: 4px; }
+  font-size: 38px;
+  letter-spacing: 2.75px; }
   @media only screen and (max-width: 799px) {
     h1, footer .content h1 a {
       font-size: 30px; } }
@@ -55,7 +55,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #172483; }
+  color: #959FAA; }
   @media only screen and (max-width: 799px) {
     a {
       font-size: 13px; } }
@@ -64,7 +64,6 @@ a {
     font-weight: 700; }
 
 .button {
-  align-self: center;
   padding: 17px 30px;
   border: solid 1px #ff5b02;
   text-transform: uppercase;
@@ -75,7 +74,7 @@ a {
       padding: 10px;
       font-size: 12px; } }
   .button:hover {
-    color: white;
+    color: #142a40;
     background-color: #ff5b02; }
 
 ul {
@@ -235,8 +234,8 @@ section {
       background-position: right 21%;
       background-size: 45%; } }
   #home #projects .row:nth-of-type(1), #home #projects .row_reverse:nth-of-type(1) {
-    flex: 1;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: flex-start; }
   #home .content:nth-of-type(1) {
     height: 85vh;
     flex-direction: row;
@@ -296,13 +295,15 @@ section {
 #about {
   flex-flow: row wrap; }
   #about .introduction {
-    justify-content: space-between; }
+    justify-content: space-between;
+    margin-bottom: 15rem; }
     @media only screen and (max-width: 799px) {
       #about .introduction {
         width: 100%;
         flex-direction: column; } }
     #about .introduction .profile-image {
-      width: 40%; }
+      width: 40%;
+      height: 100%; }
       @media only screen and (max-width: 799px) {
         #about .introduction .profile-image {
           width: 100%;
@@ -399,11 +400,11 @@ section {
       margin-top: 12rem;
       align-self: flex-start; }
     #projects .project-item .project-item_description .button_fade {
+      cursor: pointer;
       border-color: #d3d8df;
       color: #d3d8df; }
       #projects .project-item .project-item_description .button_fade:hover {
-        background: transparent;
-        border-color: #d3d8df; }
+        color: #142a40; }
 #projects .project-item_vertical {
   justify-content: space-between; }
   @media only screen and (max-width: 799px) {
@@ -442,6 +443,10 @@ section {
 @media only screen and (max-width: 799px) {
   #case-study .col-2 {
     padding-top: 3rem; } }
+#case-study .challenge {
+  padding: 5rem 3rem; }
+  #case-study .challenge p {
+    color: #959faa; }
 #case-study .case-study_description {
   justify-content: space-between; }
   @media only screen and (max-width: 799px) {
@@ -457,6 +462,8 @@ section {
     width: 100%;
     height: 100%;
     display: block; }
+    #case-study .project-item ~ .image-descriptions img:not(:last-child) {
+      margin-bottom: 5rem; }
 #case-study .project-item .column p, #case-study .project-item .col-2 p {
   padding-bottom: 2rem; }
 

@@ -7,22 +7,23 @@
 	<meta name="keywords" content="">
     <meta name="description" content="" />
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Nunito+Sans:400,600,700|Sanchez" rel="stylesheet">
+    <link rel="stylesheet" href="styles/animsion.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body class="animsition">
     
     <section>
         <ul class="nav">
-            <li><a href="home.html"><img src="images/logo-marko-peric.svg" alt=""></a></li>
+            <li><a href="home.html" class="animsition-link"><img src="images/logo-marko-peric.svg" alt=""></a></li>
             <li class="burger">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </li>
-            <li><a class="active" href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
+            <li><a class="active animsition-link" href="about.html">About</a></li>
+            <li><a href="projects.html" class="animsition-link">Projects</a></li>
         </ul>
 
         <div id="about"  class="content">
@@ -139,16 +140,40 @@
             
             <ul class="footer-nav">
                 <li><p>© Portfolio 2018 - Marko Peric</p></li>
-                <li><a href="">Dribbble</a></li>
-                <li><a href="">Behance</a></li>
-                <li><a href="">Github</a></li>
-                <li><a href="">LinkedIn</a></li>
+                <li><a href="https://dribbble.com/marckoperic" target="_blank">Dribbble</a></li>
+                <li><a href="https://www.behance.net/marckoperic" target="_blank">Behance</a></li>
+                <li><a href="https://github.com/marckoperic" target="_blank">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/marckoperic/" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/burger-menu.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animsition").animsition({
+            inClass: 'fade-in',
+            outClass: 'fade-out-down-sm',
+            inDuration: 600,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            loading: true,
+            loadingParentElement: 'body',
+            loadingClass: 'animsition-loading',
+            loadingInner: '',
+            timeout: true,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            overlay : false,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+            });
+        });
+    </script>
 </body>
 
 </html>
