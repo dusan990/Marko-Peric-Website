@@ -102,21 +102,27 @@ a {
 }
 
 .button {
-    padding: 17px 30px;
-    border: solid 1px $color-2;
+    padding: $spc * 1.7 $spc * 3;
     text-transform: uppercase;
     text-align: center;
+    border: solid 1px #EFCC72;
+    color: #242529;
 
-    transition: background-color .4s ease-in-out, color .4s ease-in-out;
+    transition: background-color .4s ease-in-out, color .4s ease-in-out, border .4s ease-in-out;
 
     @include mq('mobile-sm') {
-        padding: 10px;
+        padding: $spc * 1;
         font-size: 12px;
     }
 
     &:hover {
-        color: $color-3;
-        background-color: $color-2;
+        color: #242529;
+        background-color: #FDF3D0;
+        border: 1px solid #EFCC72;
+    }
+    &:active {
+        border: 1px solid #FFBE13;
+        background-color: #FFBE13;
     }
 }
 
@@ -365,7 +371,7 @@ section {
 
         @include mq('laptop') {
             height: 80vh;
-            margin-top: 40px;
+            margin-top: $spc * 4;
         }
         @include mq('mobile-sm') {
             margin-top: 0;
@@ -378,7 +384,7 @@ section {
                 margin-top: 5%;
             }
             @include mq('mobile') {
-                margin-top: 40px;
+                margin-top: $spc * 4;
             }
             @include mq('mobile-sm') {
                 margin-top: 0;
@@ -569,7 +575,7 @@ section {
 
     .project-item {
         justify-content: space-between;
-        padding: 5rem 0;
+        padding: $spc * 5 0;
         
         @include mq('tablet') {
             flex-direction: column;
@@ -599,8 +605,8 @@ section {
         }
 
         .project-item_description {
-            padding-left: 3rem;
-            padding-top: 10rem;
+            padding-left: $spc * 3;
+            padding-top: $spc * 1;
 
 
             p {
@@ -608,17 +614,22 @@ section {
             }
             
             .button {
-                margin-top: 12rem;
+                margin-top: $spc * 5;
                 align-self: flex-start;
             }
 
             .button_fade {
                 cursor: pointer;
                 border-color: #d3d8df;
-                color: #d3d8df;
 
                 &:hover {
-                    color: #142a40;
+                    border: 1px solid #6C7379;
+                    background-color: #EFF0F2;
+                }
+                &:active {
+                    background-color: #60707F;
+                    border: 1px solid #60707F;
+                    color: white;
                 }
             }
         }
@@ -756,7 +767,7 @@ footer {
     margin-top: $spc * 5;
 
     @include mq('tablet') {
-        padding: 0 30px;
+        padding: 0 $spc * 3;
         font-size: 26px;
     }
 

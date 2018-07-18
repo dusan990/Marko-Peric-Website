@@ -64,18 +64,23 @@ a {
     font-weight: 700; }
 
 .button {
-  padding: 17px 30px;
-  border: solid 1px #ff5b02;
+  padding: 1.7rem 3rem;
   text-transform: uppercase;
   text-align: center;
-  transition: background-color .4s ease-in-out, color .4s ease-in-out; }
+  border: solid 1px #EFCC72;
+  color: #242529;
+  transition: background-color .4s ease-in-out, color .4s ease-in-out, border .4s ease-in-out; }
   @media only screen and (max-width: 499px) {
     .button {
-      padding: 10px;
+      padding: 1rem;
       font-size: 12px; } }
   .button:hover {
-    color: #142a40;
-    background-color: #ff5b02; }
+    color: #242529;
+    background-color: #FDF3D0;
+    border: 1px solid #EFCC72; }
+  .button:active {
+    border: 1px solid #FFBE13;
+    background-color: #FFBE13; }
 
 ul {
   list-style-type: none;
@@ -243,7 +248,7 @@ section {
     @media only screen and (max-width: 1439px) {
       #home .content:nth-of-type(1) {
         height: 80vh;
-        margin-top: 40px; } }
+        margin-top: 4rem; } }
     @media only screen and (max-width: 499px) {
       #home .content:nth-of-type(1) {
         margin-top: 0; } }
@@ -254,7 +259,7 @@ section {
           margin-top: 5%; } }
       @media only screen and (max-width: 799px) {
         #home .content:nth-of-type(1) .header {
-          margin-top: 40px; } }
+          margin-top: 4rem; } }
       @media only screen and (max-width: 499px) {
         #home .content:nth-of-type(1) .header {
           margin-top: 0; } }
@@ -393,18 +398,22 @@ section {
         height: 100%; } }
   #projects .project-item .project-item_description {
     padding-left: 3rem;
-    padding-top: 10rem; }
+    padding-top: 1rem; }
     #projects .project-item .project-item_description p {
       color: #959faa; }
     #projects .project-item .project-item_description .button {
-      margin-top: 12rem;
+      margin-top: 5rem;
       align-self: flex-start; }
     #projects .project-item .project-item_description .button_fade {
       cursor: pointer;
-      border-color: #d3d8df;
-      color: #d3d8df; }
+      border-color: #d3d8df; }
       #projects .project-item .project-item_description .button_fade:hover {
-        color: #142a40; }
+        border: 1px solid #6C7379;
+        background-color: #EFF0F2; }
+      #projects .project-item .project-item_description .button_fade:active {
+        background-color: #60707F;
+        border: 1px solid #60707F;
+        color: white; }
 #projects .project-item_vertical {
   justify-content: space-between; }
   @media only screen and (max-width: 799px) {
@@ -480,7 +489,7 @@ footer {
   margin-top: 5rem; }
   @media only screen and (max-width: 1223px) {
     footer {
-      padding: 0 30px;
+      padding: 0 3rem;
       font-size: 26px; } }
   footer .content {
     max-width: 1160px; }
