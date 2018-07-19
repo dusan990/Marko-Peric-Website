@@ -355,12 +355,14 @@ section {
     @include mq('mobile') {
         background-position: right 21%;
         background-size: 45%;
+        background-image: none;
     }
     
     #projects {
         .row:nth-of-type(1) {
             justify-content: space-between;
             align-items: flex-start;
+            padding-bottom: $spc * 5;
         }
     }
 
@@ -403,6 +405,8 @@ section {
                 h1 {
                     line-height: 1.4;
                     letter-spacing: 4px;
+                    padding-top: 1rem;
+                    justify-content: center;
     
                     span {
                         color: #EBEFF2;
@@ -448,7 +452,8 @@ section {
 
 #about {
     flex-flow: row wrap;
-
+    padding-top: $spc * 5;
+    
     .introduction {
         justify-content: space-between;
         margin-bottom: $spc * 15;
@@ -464,6 +469,7 @@ section {
             
             @include mq('mobile') {
                 width: 100%;
+                height: auto;
                 order: 2;
                 padding: $spc * 3 0;
             }
@@ -586,7 +592,13 @@ section {
 
             .project-item_description {
                 padding-right: $spc * 3;
+                padding-top: 0;
                 padding-left: 0;
+
+                @include mq('mobile') {
+                    padding-left: $spc * 3;
+                    padding-top: $spc * 5;
+                }
             }
         }
 
@@ -606,7 +618,14 @@ section {
 
         .project-item_description {
             padding-left: $spc * 3;
-            padding-top: $spc * 1;
+            padding-top: 0;
+            justify-content: center;
+            
+            @include mq('tablet') {
+                padding-left: $spc * 3;
+                padding-top: $spc * 5;
+                padding-right: 0;
+            }
 
 
             p {
@@ -657,7 +676,10 @@ section {
                     height: 100%;
                 }
             }
-        }   
+            .project-item_description {
+                padding-top: $spc * 5;
+            }
+        }
     }
 
     //Case stufy page additional
