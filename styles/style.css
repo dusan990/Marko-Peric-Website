@@ -237,10 +237,12 @@ section {
   @media only screen and (max-width: 799px) {
     #home {
       background-position: right 21%;
-      background-size: 45%; } }
+      background-size: 45%;
+      background-image: none; } }
   #home #projects .row:nth-of-type(1), #home #projects .row_reverse:nth-of-type(1) {
     justify-content: space-between;
-    align-items: flex-start; }
+    align-items: flex-start;
+    padding-bottom: 5rem; }
   #home .content:nth-of-type(1) {
     height: 85vh;
     flex-direction: row;
@@ -298,7 +300,8 @@ section {
             color: #172483; }
 
 #about {
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  padding-top: 5rem; }
   #about .introduction {
     justify-content: space-between;
     margin-bottom: 15rem; }
@@ -428,6 +431,8 @@ section {
     #projects .project-item_vertical .project-item .project-item_image img {
       width: 100%;
       height: 100%; }
+    #projects .project-item_vertical .project-item .project-item_description {
+      padding-top: 5rem; }
 #projects .case-study_header-image {
   width: 100%; }
 #projects .conclusion {
