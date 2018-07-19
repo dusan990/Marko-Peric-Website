@@ -37,7 +37,7 @@ h2 {
 h3 {
   font-family: "Nunito Sans", sans-serif;
   font-size: 18px;
-  color: #ff5b02; }
+  color: #FFBE13; }
 
 p {
   font-family: "Sanchez", serif;
@@ -237,12 +237,10 @@ section {
   @media only screen and (max-width: 799px) {
     #home {
       background-position: right 21%;
-      background-size: 45%;
-      background-image: none; } }
+      background-size: 45%; } }
   #home #projects .row:nth-of-type(1), #home #projects .row_reverse:nth-of-type(1) {
     justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 5rem; }
+    align-items: flex-start; }
   #home .content:nth-of-type(1) {
     height: 85vh;
     flex-direction: row;
@@ -300,8 +298,7 @@ section {
             color: #172483; }
 
 #about {
-  flex-flow: row wrap;
-  padding-top: 5rem; }
+  flex-flow: row wrap; }
   #about .introduction {
     justify-content: space-between;
     margin-bottom: 15rem; }
@@ -358,7 +355,7 @@ section {
         height: 2px;
         left: calc(50% - 20px);
         bottom: 25px;
-        background-color: #ff6400; }
+        background-color: #FFBE13; }
     #about .testimonial p:nth-child(3) {
       opacity: 0.4; }
   #about .skillset {
@@ -401,8 +398,7 @@ section {
         height: 100%; } }
   #projects .project-item .project-item_description {
     padding-left: 3rem;
-    padding-top: 1rem;
-    justify-content: center; }
+    padding-top: 1rem; }
     #projects .project-item .project-item_description p {
       color: #959faa; }
     #projects .project-item .project-item_description .button {
@@ -432,8 +428,6 @@ section {
     #projects .project-item_vertical .project-item .project-item_image img {
       width: 100%;
       height: 100%; }
-    #projects .project-item_vertical .project-item .project-item_description {
-      padding-top: 5rem; }
 #projects .case-study_header-image {
   width: 100%; }
 #projects .conclusion {
@@ -510,7 +504,7 @@ footer {
           width: 100%;
           font-size: 26px; } }
       footer .content h1 a {
-        color: #ff5b02; }
+        color: #FFBE13; }
     footer .content .footer-nav li a {
       color: white; }
       footer .content .footer-nav li a:after {
