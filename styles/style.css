@@ -401,7 +401,8 @@ section {
         height: 100%; } }
   #projects .project-item .project-item_description {
     padding-left: 3rem;
-    padding-top: 1rem; }
+    padding-top: 1rem;
+    justify-content: center; }
     #projects .project-item .project-item_description p {
       color: #959faa; }
     #projects .project-item .project-item_description .button {
